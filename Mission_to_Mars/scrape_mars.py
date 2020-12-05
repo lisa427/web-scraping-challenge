@@ -12,14 +12,14 @@ def Merge(dict1, dict2):
     result = {**dict1, **dict2}
     return result
 
-def scrape():
+def scrape_web():
 
     # get news title and text
     browser = init_browser()
     news_url = 'https://mars.nasa.gov/news'
     browser.visit(news_url)
     titles = browser.find_by_tag('div[class="content_title"]')
-    news_titles = titles[1].text
+    news_title = titles[1].text
     articles = browser.find_by_tag('div[class="article_teaser_body"]')
     news_p = articles[0].text 
     browser.quit()

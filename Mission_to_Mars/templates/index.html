@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+    
+          
+        <div class="row">
+          <div class="col-12">
+              
+                  <h2>Latest Mars News</h2>
+                  <h3>{{ mars.news_title }}</h3>
+                  <p>{{ mars.news_p }}</p>
+              
+          </div>
+        </div>
+      
+          
+              
+                  <div class="row">
+                      <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+
+                        <h2>Featured Mars Image</h2>
+                        <img style="width: 100%;" src="{{ mars.featured_img }}" alt="Mars">
+                          
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                          
+                        <h2>Mars Facts</h2>
+                        {{ mars.table_html }}
+
+                      </div>
+                  </div>
+                  <div class="row">
+                    
+                    {% for x in mars.hemi_dict %}
+                      <l1><img style="width: 50%;" src="{{ x.img_url }}" alt="Mars"><br>{{ x.title }}</l1>
+                    {% endfor %}
+
+
+
+ <!--                  <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                          
+                          img 1
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                          
+                          img 2
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                        
+                        img 3
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                        
+                        img 4
+                    </div>  -->
+
+                  </div>
+
+      
+  </div>
+</body>
+
+
+</html>
