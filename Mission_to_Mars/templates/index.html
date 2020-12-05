@@ -2,11 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <title>Mission to Mars</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -43,13 +42,27 @@
 
                       </div>
                   </div>
+                  <hr>
                   <div class="row">
-                    
+                    <div class="col-12 text-center">
+                      <h2>Mars Hemispheres</h2>
+                    </div>
+                  </div>
+ 
+                    <div class="row">  
+
                     {% for x in mars.hemi_dict %}
-                      <l1><img style="width: 50%;" src="{{ x.img_url }}" alt="Mars"><br>{{ x.title }}</l1>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="card" style="width: 100%;">
+                      <img src="{{ x.img_url }}" class="card-img-top" alt="mars hemisphere">
+                      <div class="card-body">
+                        <h3 class="card-title">{{ x.title }}</h3>
+                      </div>
+                    </div>
+                    </div>
                     {% endfor %}
 
-
+                    
 
  <!--                  <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                           
