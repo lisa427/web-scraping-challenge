@@ -3,6 +3,7 @@ import requests
 from splinter import Browser
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
+import time
 
 def init_browser():
     executable_path = {'executable_path': ChromeDriverManager().install()}
@@ -14,12 +15,19 @@ def Merge(dict1, dict2):
 
 def scrape_web():
 
-    # get news title and text
+    # get news title
     browser = init_browser()
     news_url = 'https://mars.nasa.gov/news'
     browser.visit(news_url)
+    time.sleep(1)
     titles = browser.find_by_tag('div[class="content_title"]')
-    news_title = titles[1].text
+    news_t = titles[1].text
+    browser.quit()
+
+    # get news text
+    browser = init_browser()
+    news_url = 'https://mars.nasa.gov/news'
+    browser.visit(news_url)
     articles = browser.find_by_tag('div[class="article_teaser_body"]')
     news_p = articles[0].text 
     browser.quit()
@@ -94,7 +102,7 @@ def scrape_web():
     
     # store the data in a dictionary
     mars_data = {
-        "news_title": news_title,
+        "news_t": news_t,
         "news_p": news_p,
         "featured_img": featured_jpg_href,
         "table_html": table_html,
